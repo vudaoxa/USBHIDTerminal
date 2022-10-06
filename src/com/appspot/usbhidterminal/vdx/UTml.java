@@ -43,11 +43,11 @@ public class UTml extends Activity implements View.OnClickListener {
 
 	private EditText edtlogText;
 	private EditText edtxtHidInput;
-	private Button btnSend;
+	//private Button btnSend;
 	private Button btnSelectHIDDevice;
 	private Button btnClear;
-	private RadioButton rbSendText;
-	private RadioButton rbSendDataType;
+	//private RadioButton rbSendText;
+	//private RadioButton rbSendDataType;
 	private String settingsDelimiter;
 
 	private String receiveDataFormat;
@@ -78,7 +78,7 @@ public class UTml extends Activity implements View.OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_hid);
 		try {
 			eventBus = EventBus.builder().logNoSubscriberMessages(false).sendNoSubscriberEvent(false).installDefaultEventBus();
 		} catch (EventBusException e) {
@@ -91,8 +91,8 @@ public class UTml extends Activity implements View.OnClickListener {
 
 	private void initUI() {
 		setVersionToTitle();
-		btnSend = (Button) findViewById(R.id.btnSend);
-		btnSend.setOnClickListener(this);
+		//btnSend = (Button) findViewById(R.id.btnSend);
+		//btnSend.setOnClickListener(this);
 
 		btnSelectHIDDevice = (Button) findViewById(R.id.btnSelectHIDDevice);
 		btnSelectHIDDevice.setOnClickListener(this);
@@ -103,26 +103,27 @@ public class UTml extends Activity implements View.OnClickListener {
 		edtxtHidInput = (EditText) findViewById(R.id.edtxtHidInput);
 		edtlogText = (EditText) findViewById(R.id.edtlogText);
 
-		rbSendDataType = (RadioButton) findViewById(R.id.rbSendData);
-		rbSendText = (RadioButton) findViewById(R.id.rbSendText);
-		rbSendDataType.setOnClickListener(this);
-		rbSendText.setOnClickListener(this);
+		//rbSendDataType = (RadioButton) findViewById(R.id.rbSendData);
+		//rbSendText = (RadioButton) findViewById(R.id.rbSendText);
+		//rbSendDataType.setOnClickListener(this);
+		//rbSendText.setOnClickListener(this);
 
 		mLog("Development plan:\nUI refactoring\nPossibility to choice interfaces, endpoints, bulk or control transfer\n", false);
 		mLog("Check Arduino DigiUSB\n", false);
 		mLog("Check Javaino\n", false);
 		mLog("Initialized\nPlease select your USB HID device\n", false);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		String test = "MF0023{\"C\":\"03\", \"D\":\"data\"}ED";
-		edtxtHidInput.setText(test);
+		//String test = "MF0023{\"C\":\"03\", \"D\":\"data\"}ED";
+		//edtxtHidInput.setText(test);
 	}
 
 	public void onClick(View v) {
-		if (v == btnSend) {
-			eventBus.post(new USBDataSendEvent(edtxtHidInput.getText().toString()));
-		} else if (v == rbSendText || v == rbSendDataType) {
-			sendToUSBService(Consts.ACTION_USB_DATA_TYPE, rbSendDataType.isChecked());
-		} else if (v == btnClear) {
+		//if (v == btnSend) {
+		//	eventBus.post(new USBDataSendEvent(edtxtHidInput.getText().toString()));
+		//} else if (v == rbSendText || v == rbSendDataType) {
+		//	sendToUSBService(Consts.ACTION_USB_DATA_TYPE, rbSendDataType.isChecked());
+		//} else
+			if (v == btnClear) {
 			edtlogText.setText("");
 		} else if (v == btnSelectHIDDevice) {
 			eventBus.post(new PrepareDevicesListEvent());
@@ -160,13 +161,13 @@ public class UTml extends Activity implements View.OnClickListener {
 		showListOfDevices(event.getCharSequenceArray());
 	}
 
-	public void onEvent(DeviceAttachedEvent event) {
-		btnSend.setEnabled(true);
-	}
+	//public void onEvent(DeviceAttachedEvent event) {
+	//	btnSend.setEnabled(true);
+	//}
 
-	public void onEvent(DeviceDetachedEvent event) {
-		btnSend.setEnabled(false);
-	}
+	//public void onEvent(DeviceDetachedEvent event) {
+	//	btnSend.setEnabled(false);
+	//}
 
 	@Override
 	protected void onStart() {
