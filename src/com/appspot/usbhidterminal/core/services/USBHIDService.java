@@ -12,7 +12,7 @@ import android.hardware.usb.UsbInterface;
 import androidx.core.app.NotificationCompat;
 
 import com.appspot.usbhidterminal.R;
-import com.appspot.usbhidterminal.USBHIDTerminal;
+//import com.appspot.usbhidterminal.USBHIDTerminal;
 import com.appspot.usbhidterminal.core.Consts;
 import com.appspot.usbhidterminal.core.USBUtils;
 import com.appspot.usbhidterminal.core.events.DeviceAttachedEvent;
@@ -20,6 +20,7 @@ import com.appspot.usbhidterminal.core.events.DeviceDetachedEvent;
 import com.appspot.usbhidterminal.core.events.LogMessageEvent;
 import com.appspot.usbhidterminal.core.events.ShowDevicesListEvent;
 import com.appspot.usbhidterminal.core.events.USBDataReceiveEvent;
+import com.appspot.usbhidterminal.vdx.UTml;
 
 public class USBHIDService extends AbstractUSBHIDService {
 
@@ -217,11 +218,11 @@ public class USBHIDService extends AbstractUSBHIDService {
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder(this);
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
-				new Intent(this, USBHIDTerminal.class)
+				new Intent(this, UTml.class)
 						.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP),
 				0);
 		PendingIntent pendingCloseIntent = PendingIntent.getActivity(this, 0,
-				new Intent(this, USBHIDTerminal.class)
+				new Intent(this, UTml.class)
 						.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)
 						.setAction(Consts.USB_HID_TERMINAL_CLOSE_ACTION),
 				0);

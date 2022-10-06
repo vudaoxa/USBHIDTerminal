@@ -1,5 +1,6 @@
-package com.appspot.usbhidterminal;
+package com.appspot.usbhidterminal.vdx;
 
+import com.appspot.usbhidterminal.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import com.appspot.usbhidterminal.SettingsActivity;
 import com.appspot.usbhidterminal.core.Consts;
 import com.appspot.usbhidterminal.core.events.DeviceAttachedEvent;
 import com.appspot.usbhidterminal.core.events.DeviceDetachedEvent;
@@ -33,7 +35,7 @@ import com.appspot.usbhidterminal.core.services.WebServerService;
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.EventBusException;
 
-public class USBHIDTerminal extends Activity implements View.OnClickListener {
+public class UTml extends Activity implements View.OnClickListener {
 
 	private SharedPreferences sharedPreferences;
 

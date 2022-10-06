@@ -11,12 +11,13 @@ import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
 import com.appspot.usbhidterminal.R;
-import com.appspot.usbhidterminal.USBHIDTerminal;
+//import com.appspot.usbhidterminal.USBHIDTerminal;
 import com.appspot.usbhidterminal.core.Consts;
 import com.appspot.usbhidterminal.core.USBUtils;
 import com.appspot.usbhidterminal.core.events.LogMessageEvent;
 import com.appspot.usbhidterminal.core.events.USBDataReceiveEvent;
 import com.appspot.usbhidterminal.core.events.USBDataSendEvent;
+import com.appspot.usbhidterminal.vdx.UTml;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -124,7 +125,7 @@ public class SocketService extends Service {
             socket = serverSocket.accept();
             out = new DataOutputStream(socket.getOutputStream());
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            out.writeChars("Hello from USBHIDTerminal\n");
+            out.writeChars("Hello from UTml\n");
         } catch (SocketException e) {
         } catch (IOException e) {
             Log.w(TAG, e);
@@ -175,11 +176,11 @@ public class SocketService extends Service {
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder(this);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
-                new Intent(this, USBHIDTerminal.class)
+                new Intent(this, UTml.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP),
                 0);
         PendingIntent pendingCloseIntent = PendingIntent.getActivity(this, 0,
-                new Intent(this, USBHIDTerminal.class)
+                new Intent(this, UTml.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)
                         .setAction(Consts.SOCKET_SERVER_CLOSE_ACTION),
                 0);
