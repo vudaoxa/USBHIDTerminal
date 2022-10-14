@@ -58,6 +58,7 @@ public class USBHIDService extends AbstractUSBHIDService {
 		eventBus.post(new DeviceDetachedEvent());
 	}
 
+	//todo vdx here
 	@Override
 	public void onDeviceSelected(UsbDevice device) {
 		mLog("Selected device VID:0x" + Integer.toHexString(device.getVendorId()) + " PID:0x" + Integer.toHexString(device.getProductId()));
@@ -134,6 +135,8 @@ public class USBHIDService extends AbstractUSBHIDService {
 
 	}
 
+	//todo vdx
+	// back after device attached
 	@Override
 	public void onDeviceAttached(UsbDevice device) {
 		eventBus.post(new DeviceAttachedEvent());

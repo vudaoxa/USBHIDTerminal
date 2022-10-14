@@ -158,6 +158,7 @@ public class USBHIDTerminal extends Activity implements View.OnClickListener {
 		showListOfDevices(event.getCharSequenceArray());
 	}
 
+	//todo check it
 	public void onEvent(DeviceAttachedEvent event) {
 		btnSend.setEnabled(true);
 	}

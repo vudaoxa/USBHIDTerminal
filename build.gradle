@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 ext {
     versionMajor = 1
@@ -13,17 +14,11 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.2'
-
+        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
-}
-
-repositories {
-    google()
-    mavenCentral()
-    jcenter()
 }
 
 dependencies {
@@ -31,6 +26,11 @@ dependencies {
     implementation 'com.nanohttpd:nanohttpd:2.1.1'
     implementation 'com.nanohttpd:nanohttpd-websocket:2.1.1'
     implementation 'de.greenrobot:eventbus:2.4.0'
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
 
 android {
@@ -49,7 +49,9 @@ android {
         versionCode computeVersionCode()
         versionName computeVersionName()
     }
-
+    buildFeatures {
+        viewBinding = true
+    }
     buildTypes {
         release {
             minifyEnabled false

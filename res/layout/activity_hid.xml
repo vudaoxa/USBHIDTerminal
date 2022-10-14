@@ -4,7 +4,8 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:windowSoftInputMode="stateHidden"
-    tools:context=".USBHIDTerminal">
+    tools:context=".USBHIDTerminal"
+    tools:viewBindingIgnore="true">
 
     <Button
         android:id="@+id/btnSelectHIDDevice"

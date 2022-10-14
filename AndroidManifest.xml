@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.appspot.usbhidterminal"
     android:versionCode="12"
-    android:versionName="1.1.1" >
-
-    <uses-sdk android:targetSdkVersion="22" />
+    android:versionName="1.1.1">
 
     <uses-feature android:name="android.hardware.usb.host" />
 
@@ -19,14 +18,32 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
-            android:name=".vdx.UTml"
+            android:name=".vdx.MainActivity"
             android:exported="true"
-            android:label="@string/app_name" >
+            android:theme="@style/Theme.Tkfid"
+            tools:targetApi="31">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".vdx.UTml"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+
+                <!--<action android:name="android.intent.action.SEND" />-->
+                <action android:name="ctg.kfn.hid" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
