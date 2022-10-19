@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".vdx.MainActivity"
+            android:name=".out.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Tkfid"
             tools:targetApi="31">
@@ -28,22 +28,6 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".vdx.UTml"
-            android:exported="true"
-            android:launchMode="singleTask"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-
-                <!--<action android:name="android.intent.action.SEND" />-->
-                <action android:name="ctg.kfn.hid" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 

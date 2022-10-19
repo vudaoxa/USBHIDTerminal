@@ -12,12 +12,11 @@ import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
 import com.appspot.usbhidterminal.R;
-//import com.appspot.usbhidterminal.USBHIDTerminal;
 import com.appspot.usbhidterminal.core.Consts;
 import com.appspot.usbhidterminal.core.USBUtils;
 import com.appspot.usbhidterminal.core.events.LogMessageEvent;
 import com.appspot.usbhidterminal.core.webserver.WebServer;
-import com.appspot.usbhidterminal.vdx.UTml;
+import com.appspot.usbhidterminal.kid.UTml;
 
 import java.io.IOException;
 
@@ -54,7 +53,7 @@ public class WebServerService extends Service {
                if (webServer == null) {
                    webServer = new WebServer(this.getAssets(), serverPort);
                    webServer.start();
-                   WifiManager wm = (WifiManager) getSystemService(WIFI_SERVICE);
+                   WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
                    if (wm.isWifiEnabled()) {
                        String ip = USBUtils.getIpAddress(wm.getConnectionInfo().getIpAddress());
                        EventBus.getDefault().post(new LogMessageEvent("Web service launched\n" +

@@ -211,11 +211,11 @@ public abstract class AbstractUSBHIDService extends Service {
 			}
 			if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
 				if (device != null) {
-					device = null;
 					if (usbThreadDataReceiver != null) {
 						usbThreadDataReceiver.stopThis();
 					}
 					onDeviceDisconnected(device);
+					device = null;
 				}
 			}
 		}

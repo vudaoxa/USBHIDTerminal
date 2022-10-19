@@ -17,7 +17,7 @@ import com.appspot.usbhidterminal.core.USBUtils;
 import com.appspot.usbhidterminal.core.events.LogMessageEvent;
 import com.appspot.usbhidterminal.core.events.USBDataReceiveEvent;
 import com.appspot.usbhidterminal.core.events.USBDataSendEvent;
-import com.appspot.usbhidterminal.vdx.UTml;
+import com.appspot.usbhidterminal.kid.UTml;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
